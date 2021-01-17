@@ -1,5 +1,12 @@
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/reloader' if development?
+require 'sinatra/activerecord'
+
+set :database, 'sqlite3:barber_AR_29.sqlite'
+
+class Client < ActiveRecord::Base
+end
 
 configure do
   enable :sessions
