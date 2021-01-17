@@ -3,9 +3,12 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/activerecord'
 
-set :database, 'sqlite3:barber_AR_29.sqlite'
+set :database, {adapter: 'sqlite3', database: 'barber_AR_29.sqlite'}
 
 class Client < ActiveRecord::Base
+end
+
+class Barber < ActiveRecord::Base
 end
 
 configure do
